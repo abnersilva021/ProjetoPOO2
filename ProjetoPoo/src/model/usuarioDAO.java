@@ -15,9 +15,9 @@ import javax.swing.JOptionPane;
  *
  * @author aluno.saolucas
  */
-public class usuarioDAO {
+public class UsuarioDAO {
     public boolean autenticar(String email, String senha){
-        String sql = "SELECT * from TBUSUARIO" + "WHERE email = ? and senha = md5(?)" + "and ativo = true";
+        String sql = "SELECT * from TBUSUARIO WHERE email = ? and senha = ? and ativo = true";
         
         GerenciadorConexao gerenciador = new GerenciadorConexao();
         Connection con = gerenciador.getConexao();
