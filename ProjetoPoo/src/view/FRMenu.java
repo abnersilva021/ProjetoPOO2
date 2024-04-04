@@ -82,6 +82,11 @@ public class FRMenu extends javax.swing.JFrame {
         MiCadUsuario.setText("Cadastro");
 
         MICadUsuario.setText("Usuario");
+        MICadUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MICadUsuarioActionPerformed(evt);
+            }
+        });
         MiCadUsuario.add(MICadUsuario);
 
         jMenuItem4.setText("???");
@@ -129,6 +134,13 @@ public class FRMenu extends javax.swing.JFrame {
         
 // TODO add your handling code here:
     }//GEN-LAST:event_MiSairActionPerformed
+
+    private void MICadUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MICadUsuarioActionPerformed
+        // TODO add your handling code here:
+        
+        new FRCadUsuario(this, rootPaneCheckingEnabled).setVisible(true);
+        
+    }//GEN-LAST:event_MICadUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
