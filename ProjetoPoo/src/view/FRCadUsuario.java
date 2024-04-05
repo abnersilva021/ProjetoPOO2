@@ -5,7 +5,11 @@
  */
 package view;
 
+import Controller.UsuarioController;
+import Utils.Utils;
+import java.util.Date;
 import javax.swing.JOptionPane;
+import model.Usuario;
 
 /**
  *
@@ -40,7 +44,7 @@ public class FRCadUsuario extends javax.swing.JDialog {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         ckbAtivo = new javax.swing.JCheckBox();
-        txtnasc = new javax.swing.JFormattedTextField();
+        txtNasc = new javax.swing.JFormattedTextField();
         btnSalvar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
@@ -77,10 +81,10 @@ public class FRCadUsuario extends javax.swing.JDialog {
             }
         });
 
-        txtnasc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
-        txtnasc.addActionListener(new java.awt.event.ActionListener() {
+        txtNasc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
+        txtNasc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtnascActionPerformed(evt);
+                txtNascActionPerformed(evt);
             }
         });
 
@@ -138,7 +142,7 @@ public class FRCadUsuario extends javax.swing.JDialog {
                             .addComponent(txtemail))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtnasc, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(ckbAtivo)
                         .addGap(33, 33, 33))
@@ -172,8 +176,8 @@ public class FRCadUsuario extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtsenha, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtsenha, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtConSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -186,7 +190,7 @@ public class FRCadUsuario extends javax.swing.JDialog {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtnasc, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnCancelar)
@@ -212,9 +216,9 @@ public class FRCadUsuario extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_ckbAtivoActionPerformed
 
-    private void txtnascActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnascActionPerformed
+    private void txtNascActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNascActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtnascActionPerformed
+    }//GEN-LAST:event_txtNascActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
@@ -246,6 +250,25 @@ public class FRCadUsuario extends javax.swing.JDialog {
       
         }
         
+      Usuario usu = new Usuario();
+      usu.setNome(txtnome.getText());
+      usu.setEmail(txtemail.getText());
+      
+      String senha = new String(txtsenha.getPassword());
+      senha = Utils.calcularMD5(senha);
+      usu.setSenha(senha);
+      usu.setAtivo(ckbAtivo.isSelected());
+      
+      
+      Date data = Utils.converterStringToDate(txtNasc.getText());
+      usu.setDataNasc(data);
+      
+      UsuarioController controller = new UsuarioController();
+      if(controller.adicionarUsuario(usu)){
+          this.dispose();
+      }
+        
+      
     }//GEN-LAST:event_btnSalvarMouseClicked
 
     private boolean verificaCampos(){
@@ -265,12 +288,12 @@ public class FRCadUsuario extends javax.swing.JDialog {
             
             return false;
         }
-        if(!txtemail.getText().matches("^[a-zA=Z.__]+@[a-zA-Z._]+.[a-zA-Z._]+$")){
+        if(!txtemail.getText().matches("^[a-zA-Z0-9._]+@[a-zA-Z._]+.[a-zA-Z._]+$")){
             JOptionPane.showMessageDialog(null, "Campo 'Email' possui formato invalido");
             
             return false;
         }
-        if(!txtnasc.getText().matches("^[0-9]{2}/[0-9]{4}$")){
+        if(!txtNasc.getText().matches("^[0-9]{2}/[0-9]{2}/[0-9]{4}$")){
             JOptionPane.showMessageDialog(null, "Campo 'Data Nascimento' possui formato inválido." + "Ex: 01/01/2000");
             
             return false;
@@ -346,8 +369,8 @@ public class FRCadUsuario extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField txtConSenha;
+    private javax.swing.JFormattedTextField txtNasc;
     private javax.swing.JTextField txtemail;
-    private javax.swing.JFormattedTextField txtnasc;
     private javax.swing.JTextField txtnome;
     private javax.swing.JPasswordField txtsenha;
     // End of variables declaration//GEN-END:variables
