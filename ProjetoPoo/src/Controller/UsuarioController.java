@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import java.util.List;
 import javax.swing.JOptionPane;
 import model.Usuario;
 
@@ -41,4 +42,10 @@ public class UsuarioController {
             return false;
         }
     }
+    
+    public List<Usuario> readForDesc(int tipo, String desc){
+        return usuarioDAO.readForDesc(tipo, desc);
+    }
+   
+           
 }

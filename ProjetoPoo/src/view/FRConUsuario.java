@@ -6,6 +6,7 @@
 package view;
 
 import Controller.UsuarioController;
+import Utils.Utils;
 import javax.swing.table.DefaultTableModel;
 import model.Usuario;
 
@@ -132,8 +133,8 @@ public class FRConUsuario extends javax.swing.JDialog {
                         .addComponent(jLabel2))
                     .addComponent(btnPesquisar))
                 .addGap(27, 27, 27)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(258, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(145, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -164,7 +165,7 @@ public class FRConUsuario extends javax.swing.JDialog {
             Object[] linha = {usu.getPkUsuario()
                 , usu.getNome()
                 , usu.getEmail()
-                , usu.getDataNasc()
+                , Utils.converterDateToString(usu.getDataNasc())
                 , usu.ativoToString()};
                 modelo.addRow(linha);
         }

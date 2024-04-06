@@ -7,6 +7,7 @@ package view;
 
 import Controller.UsuarioController;
 import Utils.Utils;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -73,6 +74,17 @@ public class FRAutenticacao extends javax.swing.JFrame {
                 txtemailActionPerformed(evt);
             }
         });
+        txtemail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtemailKeyPressed(evt);
+            }
+        });
+
+        txtsenha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtsenhaKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -135,12 +147,37 @@ public class FRAutenticacao extends javax.swing.JFrame {
 
     private void btnsenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsenhaActionPerformed
     
-        
+        logar();
         
     }//GEN-LAST:event_btnsenhaActionPerformed
 
     private void btnsenhaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsenhaMouseClicked
-        if(txtemail.getText().equals("")){
+       
+    }//GEN-LAST:event_btnsenhaMouseClicked
+
+    private void txtemailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtemailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtemailActionPerformed
+
+    private void txtsenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtsenhaKeyPressed
+
+
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            txtsenha.requestFocus();
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtsenhaKeyPressed
+
+    private void txtemailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtemailKeyPressed
+
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            txtemail.requestFocus();
+        }
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtemailKeyPressed
+        private void logar(){
+     if(txtemail.getText().equals("")){
          JOptionPane.showMessageDialog(null, "campo 'email' em branco");   
         }
         if(new String(txtsenha.getPassword()).equals("")){
@@ -163,12 +200,7 @@ public class FRAutenticacao extends javax.swing.JFrame {
             
             
     }
-    }//GEN-LAST:event_btnsenhaMouseClicked
-
-    private void txtemailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtemailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtemailActionPerformed
-        
+}
     /**
      * @param args the command line arguments
      */
