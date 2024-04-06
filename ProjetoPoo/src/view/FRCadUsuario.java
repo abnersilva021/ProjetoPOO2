@@ -7,6 +7,7 @@ package view;
 
 import Controller.UsuarioController;
 import Utils.Utils;
+import java.awt.event.KeyEvent;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import model.Usuario;
@@ -63,8 +64,20 @@ public class FRCadUsuario extends javax.swing.JDialog {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Nome");
 
+        txtnome.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtnomeKeyPressed(evt);
+            }
+        });
+
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel4.setText("Email");
+
+        txtemail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtemailKeyPressed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setText("Senha");
@@ -87,6 +100,11 @@ public class FRCadUsuario extends javax.swing.JDialog {
                 txtNascActionPerformed(evt);
             }
         });
+        txtNasc.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtNascKeyPressed(evt);
+            }
+        });
 
         btnSalvar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/logoSalvar1.png"))); // NOI18N
@@ -99,6 +117,11 @@ public class FRCadUsuario extends javax.swing.JDialog {
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarActionPerformed(evt);
+            }
+        });
+        btnSalvar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnSalvarKeyPressed(evt);
             }
         });
 
@@ -118,6 +141,18 @@ public class FRCadUsuario extends javax.swing.JDialog {
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setText("Confirmar Senha");
+
+        txtConSenha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtConSenhaKeyPressed(evt);
+            }
+        });
+
+        txtsenha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtsenhaKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -270,6 +305,55 @@ public class FRCadUsuario extends javax.swing.JDialog {
         
       
     }//GEN-LAST:event_btnSalvarMouseClicked
+
+    private void txtnomeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnomeKeyPressed
+
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            txtemail.requestFocus();
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtnomeKeyPressed
+
+    private void txtemailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtemailKeyPressed
+
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            txtsenha.requestFocus();
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtemailKeyPressed
+
+    private void txtsenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtsenhaKeyPressed
+
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            txtConSenha.requestFocus();
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtsenhaKeyPressed
+
+    private void txtConSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtConSenhaKeyPressed
+
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            txtNasc.requestFocus();
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtConSenhaKeyPressed
+
+    private void txtNascKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNascKeyPressed
+
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            ckbAtivo.requestFocus();
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNascKeyPressed
+
+    private void btnSalvarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnSalvarKeyPressed
+
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+           btnSalvarMouseClicked(null);
+        }
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSalvarKeyPressed
 
     private boolean verificaCampos(){
         if(txtnome.getText().equals("")){
