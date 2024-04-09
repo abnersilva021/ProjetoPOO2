@@ -41,6 +41,8 @@ public class FRConUsuario extends javax.swing.JDialog {
         cbFiltro = new javax.swing.JComboBox<>();
         txtFiltro = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        btnVoltar = new javax.swing.JButton();
+        btnAlterar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -90,6 +92,27 @@ public class FRConUsuario extends javax.swing.JDialog {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Filtro");
 
+        btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/voltar.png"))); // NOI18N
+        btnVoltar.setText("voltar");
+        btnVoltar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnVoltarMouseEntered(evt);
+            }
+        });
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
+
+        btnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/alterar.png"))); // NOI18N
+        btnAlterar.setText("Alterar");
+        btnAlterar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAlterarMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -118,6 +141,12 @@ public class FRConUsuario extends javax.swing.JDialog {
                         .addGap(10, 10, 10)
                         .addComponent(cbFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(btnAlterar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnVoltar)
+                .addGap(49, 49, 49))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,7 +163,11 @@ public class FRConUsuario extends javax.swing.JDialog {
                     .addComponent(btnPesquisar))
                 .addGap(27, 27, 27)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(145, Short.MAX_VALUE))
+                .addGap(46, 46, 46)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnVoltar)
+                    .addComponent(btnAlterar))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -153,24 +186,49 @@ public class FRConUsuario extends javax.swing.JDialog {
 
     private void btnPesquisarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPesquisarMouseClicked
         // TODO add your handling code here:
-        
+
         pesquisar();
     }//GEN-LAST:event_btnPesquisarMouseClicked
-        private void pesquisar(){
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void btnVoltarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltarMouseEntered
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVoltarMouseEntered
+
+    private void btnAlterarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAlterarMouseClicked
+
+        if (tbUsuario.getSelectedRow() != -1) {
+            int pk = Integer.parseInt(tbUsuario.getValueAt(tbUsuario.getSelectedRow(), 0).toString());
+
+            FRUPDUsuario telaUPD = new FRUPDUsuario(null, rootPaneCheckingEnabled);
+            telaUPD.setPkUsuario(pk);
+            telaUPD.carregarUsuario();
+            telaUPD.setVisible(true);
+        }
+
+            // TODO add your handling code here:
+    }//GEN-LAST:event_btnAlterarMouseClicked
+        
+
+    private void pesquisar(){
         DefaultTableModel modelo = (DefaultTableModel) tbUsuario.getModel();
         modelo.setNumRows(0);
         UsuarioController controller = new UsuarioController();
-        for(Usuario usu : controller.readForDesc(
-        cbFiltro.getSelectedIndex(), txtFiltro.getText())){
-            Object[] linha = {usu.getPkUsuario()
-                , usu.getNome()
-                , usu.getEmail()
-                , Utils.converterDateToString(usu.getDataNasc())
-                , usu.ativoToString()};
-                modelo.addRow(linha);
+        for (Usuario usu : controller.readForDesc(
+                cbFiltro.getSelectedIndex(), txtFiltro.getText())) {
+            Object[] linha = {usu.getPkUsuario(),
+                 usu.getNome(),
+                 usu.getEmail(),
+                 Utils.converterDateToString(usu.getDataNasc()),
+                 usu.ativoToString()};
+            modelo.addRow(linha);
         }
-        }  
-        
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -214,7 +272,9 @@ public class FRConUsuario extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAlterar;
     private javax.swing.JButton btnPesquisar;
+    private javax.swing.JButton btnVoltar;
     private javax.swing.JComboBox<String> cbFiltro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
