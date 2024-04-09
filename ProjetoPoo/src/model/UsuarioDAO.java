@@ -87,7 +87,7 @@ public class UsuarioDAO {
         ResultSet rs = null;
         List<Usuario> usuarios = new ArrayList<>();
 
-        try{
+        try {
             stmt = con.prepareStatement(sql);
             if (!desc.equals("")) {
                 if (tipo == 0 || tipo == 2) {
@@ -96,28 +96,60 @@ public class UsuarioDAO {
                     stmt.setString(1, "%" + desc + "%");
                 }
             }
-                rs = stmt.executeQuery();
+            rs = stmt.executeQuery();
 
-                while (rs.next()) {
+            while (rs.next()) {
 
-                    Usuario usuario = new Usuario();
+                Usuario usuario = new Usuario();
 
-                    usuario.setPkUsuario(rs.getLong("pkusuario"));
-                    usuario.setNome(rs.getString("nome"));
-                    usuario.setEmail(rs.getString("senha"));
-                    usuario.setDataNasc(rs.getDate("datanasc"));
-                    usuario.setAtivo(rs.getBoolean("ativo"));
-                    usuarios.add(usuario);
-                }
+                usuario.setPkUsuario(rs.getLong("pkusuario"));
+                usuario.setNome(rs.getString("nome"));
+                usuario.setEmail(rs.getString("senha"));
+                usuario.setDataNasc(rs.getDate("datanasc"));
+                usuario.setAtivo(rs.getBoolean("ativo"));
+                usuarios.add(usuario);
+            }
 
-            } catch (SQLException ex){
-                Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-                
-                }finally{
-                        gerenciador.closeConnection(stmt, rs);
-                        
-                }
-            return usuarios;
+        } catch (SQLException ex) {
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+
+        } finally {
+            gerenciador.closeConnection(stmt, rs);
+
         }
+        return usuarios;
     }
-    
+
+    public Usuario readForPk(long pk) {
+
+        String sql = "SELECT * FROM tbusuario WHERE pkusuario = ?";
+        GerenciadorConexao gerenciador = new GerenciadorConexao();
+        Connection con = gerenciador.getConexao();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        Usuario usuario = new Usuario();
+
+        try {
+            stmt = con.prepareStatement(sql);
+            stmt.setLong(1, pk);
+            rs = stmt.executeQuery();
+            if (rs.next()) {
+
+                usuario.setPkUsuario(rs.getLong("pkusuario"));
+                usuario.setNome(rs.getString("nome"));
+                usuario.setEmail(rs.getString("senha"));
+                usuario.setDataNasc(rs.getDate("datanasc"));
+                usuario.setAtivo(rs.getBoolean("ativo"));
+               
+            }
+            
+        }catch (SQLException ex){
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }finally{
+            gerenciador.closeConnection(stmt, rs);
+            
+        }
+        return usuario;
+    }
+    }

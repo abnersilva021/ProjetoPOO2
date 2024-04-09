@@ -46,6 +46,14 @@ public class UsuarioController {
     public List<Usuario> readForDesc(int tipo, String desc){
         return usuarioDAO.readForDesc(tipo, desc);
     }
+    public Usuario readForPk(long pk){
+      Usuario usu = usuarioDAO.readForPk(pk);
+      if(usu == null){
+          JOptionPane.showMessageDialog(null, "Usuario não encontrado");
+          return null;
+      }
+      return usu;
+    }
    
            
 }
