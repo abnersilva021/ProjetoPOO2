@@ -71,6 +71,34 @@ public class UsuarioDAO {
         }
         return false;
     }
+    
+    public boolean alterarUsuario(Usuario u, Long pk) {
+        String sql = "UPDATE TBUSUARIO SET Nome = ?, email = ?, senha = ?, dataNasc = ?, ativo = ? WHERE pkUsuario = ?";
+
+        GerenciadorConexao gerenciador = new GerenciadorConexao();
+        Connection con = gerenciador.getConexao();
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = con.prepareStatement(sql);
+            stmt.setString(1, u.getNome());
+            stmt.setString(2, u.getEmail());
+            stmt.setString(3, u.getSenha());
+            stmt.setDate(4, new java.sql.Date(u.getDataNasc().getTime()));
+            stmt.setBoolean(5, u.isAtivo());
+            stmt.setLong(6, pk);
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Usuario:" + u.getNome() + "insert com sucesso");
+            return true;
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "ERRO:" + e.getMessage());
+
+        } finally {
+            gerenciador.closeConnection(stmt);
+        }
+        return false;
+    }
 
     public List<Usuario> readForDesc(int tipo, String desc) {
         String sql = "SELECT * FROM tbusuario ";
@@ -137,7 +165,8 @@ public class UsuarioDAO {
 
                 usuario.setPkUsuario(rs.getLong("pkusuario"));
                 usuario.setNome(rs.getString("nome"));
-                usuario.setEmail(rs.getString("senha"));
+                usuario.setEmail(rs.getString("Email"));
+                usuario.setSenha(rs.getString("senha"));
                 usuario.setDataNasc(rs.getDate("datanasc"));
                 usuario.setAtivo(rs.getBoolean("ativo"));
                

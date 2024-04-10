@@ -270,6 +270,9 @@ public class FRCadUsuario extends javax.swing.JDialog {
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelarMouseClicked
+
+        this.dispose();
+
         // TODO add your handling code here:
         
         
@@ -277,6 +280,7 @@ public class FRCadUsuario extends javax.swing.JDialog {
     }//GEN-LAST:event_btnCancelarMouseClicked
 
     private void btnSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalvarMouseClicked
+
         // TODO add your handling code here:
         
         if(verificaCampos() == false){
@@ -398,6 +402,7 @@ public class FRCadUsuario extends javax.swing.JDialog {
         
         return true;
     }
+    
     /**
      * @param args the command line arguments
      */

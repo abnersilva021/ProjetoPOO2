@@ -95,6 +95,9 @@ public class FRConUsuario extends javax.swing.JDialog {
         btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/voltar.png"))); // NOI18N
         btnVoltar.setText("voltar");
         btnVoltar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnVoltarMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnVoltarMouseEntered(evt);
             }
@@ -212,13 +215,21 @@ public class FRConUsuario extends javax.swing.JDialog {
 
             // TODO add your handling code here:
     }//GEN-LAST:event_btnAlterarMouseClicked
+
+    private void btnVoltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltarMouseClicked
+
+
+        this.dispose();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVoltarMouseClicked
         
 
     private void pesquisar(){
         DefaultTableModel modelo = (DefaultTableModel) tbUsuario.getModel();
         modelo.setNumRows(0);
         UsuarioController controller = new UsuarioController();
-        for (Usuario usu : controller.readForDesc(
+        for(Usuario usu : controller.readForDesc(
                 cbFiltro.getSelectedIndex(), txtFiltro.getText())) {
             Object[] linha = {usu.getPkUsuario(),
                  usu.getNome(),
