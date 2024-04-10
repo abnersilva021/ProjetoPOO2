@@ -33,7 +33,6 @@ public class FRUPDUsuario extends javax.swing.JDialog {
     public void setSenhaUsuario(String senhaUsuario) {
         this.senhaUsuario = senhaUsuario;
     }
-    
 
     /**
      * Creates new form FRUPDUsuario
@@ -61,12 +60,12 @@ public class FRUPDUsuario extends javax.swing.JDialog {
         txtEmail = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        ckbAtivo1 = new javax.swing.JCheckBox();
+        ckbAtivo = new javax.swing.JCheckBox();
         txtNascimento = new javax.swing.JFormattedTextField();
         btnExcluir = new javax.swing.JButton();
         btnCancelar1 = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
-        txtConSenha1 = new javax.swing.JPasswordField();
+        txtConSenha = new javax.swing.JPasswordField();
         txtSenha = new javax.swing.JPasswordField();
         btnSalvar2 = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
@@ -116,12 +115,12 @@ public class FRUPDUsuario extends javax.swing.JDialog {
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel13.setText("Data Nascimento");
 
-        ckbAtivo1.setBackground(new java.awt.Color(204, 0, 255));
-        ckbAtivo1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        ckbAtivo1.setText("Ativo");
-        ckbAtivo1.addActionListener(new java.awt.event.ActionListener() {
+        ckbAtivo.setBackground(new java.awt.Color(204, 0, 255));
+        ckbAtivo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ckbAtivo.setText("Ativo");
+        ckbAtivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ckbAtivo1ActionPerformed(evt);
+                ckbAtivoActionPerformed(evt);
             }
         });
 
@@ -173,9 +172,9 @@ public class FRUPDUsuario extends javax.swing.JDialog {
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel14.setText("Confirmar Senha");
 
-        txtConSenha1.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtConSenha.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtConSenha1KeyPressed(evt);
+                txtConSenhaKeyPressed(evt);
             }
         });
 
@@ -244,7 +243,7 @@ public class FRUPDUsuario extends javax.swing.JDialog {
                                 .addComponent(jLabel10)
                                 .addComponent(jLabel11)
                                 .addComponent(txtEmail)
-                                .addComponent(txtConSenha1)
+                                .addComponent(txtConSenha)
                                 .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -266,7 +265,7 @@ public class FRUPDUsuario extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel13)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ckbAtivo1)
+                        .addComponent(ckbAtivo)
                         .addGap(21, 21, 21))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -297,11 +296,11 @@ public class FRUPDUsuario extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtConSenha1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtConSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(ckbAtivo1))
+                    .addComponent(ckbAtivo))
                 .addGap(18, 18, 18)
                 .addComponent(txtNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -331,7 +330,7 @@ public class FRUPDUsuario extends javax.swing.JDialog {
     private void txtNomeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeKeyPressed
 
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            txtemail.requestFocus();
+            txtEmail.requestFocus();
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeKeyPressed
@@ -339,14 +338,14 @@ public class FRUPDUsuario extends javax.swing.JDialog {
     private void txtEmailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyPressed
 
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            txtsenha.requestFocus();
+            txtSenha.requestFocus();
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEmailKeyPressed
 
-    private void ckbAtivo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ckbAtivo1ActionPerformed
+    private void ckbAtivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ckbAtivoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ckbAtivo1ActionPerformed
+    }//GEN-LAST:event_ckbAtivoActionPerformed
 
     private void txtNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNascimentoActionPerformed
         // TODO add your handling code here:
@@ -363,28 +362,6 @@ public class FRUPDUsuario extends javax.swing.JDialog {
     private void btnExcluirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExcluirMouseClicked
         // TODO add your handling code here:
 
-        if (verificaCampos() == false) {
-
-            return;
-
-        }
-
-        Usuario usu = new Usuario();
-        usu.setNome(txtnome.getText());
-        usu.setEmail(txtemail.getText());
-
-        String senha = new String(txtsenha.getPassword());
-        senha = Utils.calcularMD5(senha);
-        usu.setSenha(senha);
-        usu.setAtivo(ckbAtivo.isSelected());
-
-        Date data = Utils.converterStringToDate(txtNasc.getText());
-        usu.setDataNasc(data);
-
-        UsuarioController controller = new UsuarioController();
-        if (controller.adicionarUsuario(usu)) {
-            this.dispose();
-        }
 
     }//GEN-LAST:event_btnExcluirMouseClicked
 
@@ -395,14 +372,13 @@ public class FRUPDUsuario extends javax.swing.JDialog {
 
     private void btnExcluirKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnExcluirKeyPressed
 
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            btnSalvar2MouseClicked(null);
-        }
-
         // TODO add your handling code here:
     }//GEN-LAST:event_btnExcluirKeyPressed
 
     private void btnCancelar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelar1MouseClicked
+
+        this.dispose();
+
         // TODO add your handling code here:
 
     }//GEN-LAST:event_btnCancelar1MouseClicked
@@ -412,13 +388,13 @@ public class FRUPDUsuario extends javax.swing.JDialog {
 
     }//GEN-LAST:event_btnCancelar1ActionPerformed
 
-    private void txtConSenha1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtConSenha1KeyPressed
+    private void txtConSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtConSenhaKeyPressed
 
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            txtNasc.requestFocus();
+            txtNascimento.requestFocus();
         }
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtConSenha1KeyPressed
+    }//GEN-LAST:event_txtConSenhaKeyPressed
 
     private void txtSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSenhaKeyPressed
 
@@ -429,6 +405,55 @@ public class FRUPDUsuario extends javax.swing.JDialog {
     }//GEN-LAST:event_txtSenhaKeyPressed
 
     private void btnSalvar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalvar2MouseClicked
+
+        if (verificaCampos() == false) {
+
+        return;
+
+        }
+
+        Usuario usu = new Usuario();
+        Long pk = Long.valueOf(txtCodigo.getText());
+        String nome = txtNome.getText();
+        String email = txtEmail.getText();
+        String Senha = "";
+        boolean ativo = ckbAtivo.isSelected();
+        Date dataDb = usu.getDataNasc();
+
+        if (!nome.equals(txtNome.getText())) {
+            usu.setNome(nome);
+        } else {
+            usu.setNome(txtNome.getText());
+        }
+        if (!email.equals(txtEmail.getText())) {
+            usu.setEmail(email);
+
+        } else {
+            usu.setEmail(txtEmail.getText());
+        }
+
+        if (txtSenha.isEditable()) {
+            Senha = new String(txtSenha.getPassword());
+            Senha = Utils.calcularMD5(Senha);
+        } else {
+            Senha = new String(txtSenha.getPassword());
+        }
+        usu.setSenha(Senha);
+
+        if (ativo != ckbAtivo.isSelected()) {
+            usu.setAtivo(ativo);
+        } else {
+            usu.setAtivo(ckbAtivo.isSelected());
+        }
+
+        Date data = Utils.converterStringToDate(txtNascimento.getText());
+        usu.setDataNasc(data);
+
+        UsuarioController controller = new UsuarioController();
+        if (controller.alterarUsuario(usu, pk)) {
+            this.dispose();
+        }
+
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSalvar2MouseClicked
 
@@ -437,7 +462,12 @@ public class FRUPDUsuario extends javax.swing.JDialog {
     }//GEN-LAST:event_btnSalvar2ActionPerformed
 
     private void btnSalvar2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnSalvar2KeyPressed
-        // TODO add your handling code here:
+
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            btnSalvar2MouseClicked(null);
+        }
+
+// TODO add your handling code here:
     }//GEN-LAST:event_btnSalvar2KeyPressed
 
     private void txtCodigoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoKeyPressed
@@ -457,19 +487,19 @@ public class FRUPDUsuario extends javax.swing.JDialog {
 
         if (btnAlterarSenha.getText().equals("Alterar Senha")) {
             txtSenha.setEditable(true);
-            txtConSenha1.setEditable(true);
+            txtConSenha.setEditable(true);
             txtSenha.setBackground(Color.white);
-            txtConSenha1.setBackground(Color.white);
+            txtConSenha.setBackground(Color.white);
             btnAlterarSenha.setText("Cancelar alterações");
 
-            txtsenha.setText("");
-            txtConSenha1.setText("");
+            txtSenha.setText("");
+            txtConSenha.setText("");
 
         } else {
             txtSenha.setEditable(true);
-            txtConSenha1.setEditable(true);
+            txtConSenha.setEditable(true);
             txtSenha.setBackground(Color.white);
-            txtConSenha1.setBackground(Color.white);
+            txtConSenha.setBackground(Color.white);
             btnAlterarSenha.setText("Alterar alterações");
 
             txtSenha.setText(getSenhaUsuario());
@@ -480,33 +510,33 @@ public class FRUPDUsuario extends javax.swing.JDialog {
     }
 
     private boolean verificaCampos() {
-        if (txtnome.getText().equals("")) {
+        if (txtNome.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo 'nome' em branco");
             return true;
         }
 
-        if (!txtnome.getText().matches("^[\\p{L}]+$")) {
+        if (!txtNome.getText().matches("^[\\p{L}]+$")) {
             JOptionPane.showMessageDialog(null, "Campo 'Nome' possui caracteres inválidos");
 
             return true;
         }
 
-        if (txtemail.getText().equals("")) {
+        if (txtEmail.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo 'Email' em branco");
 
             return false;
         }
-        if (!txtemail.getText().matches("^[a-zA-Z0-9._]+@[a-zA-Z._]+.[a-zA-Z._]+$")) {
+        if (!txtEmail.getText().matches("^[a-zA-Z0-9._]+@[a-zA-Z._]+.[a-zA-Z._]+$")) {
             JOptionPane.showMessageDialog(null, "Campo 'Email' possui formato invalido");
 
             return false;
         }
-        if (!txtNasc.getText().matches("^[0-9]{2}/[0-9]{2}/[0-9]{4}$")) {
+        if (!txtNascimento.getText().matches("^[0-9]{2}/[0-9]{2}/[0-9]{4}$")) {
             JOptionPane.showMessageDialog(null, "Campo 'Data Nascimento' possui formato inválido." + "Ex: 01/01/2000");
 
             return false;
         }
-        String senha = new String(txtsenha.getPassword());
+        String senha = new String(txtSenha.getPassword());
 
         if (senha.length() < 8) {
             JOptionPane.showMessageDialog(null, "Campo 'senha' deve-ser maior que 8 caracteres");
@@ -532,8 +562,8 @@ public class FRUPDUsuario extends javax.swing.JDialog {
         txtNome.setText(usu.getNome());
         txtEmail.setText(usu.getEmail());
         txtNascimento.setText(Utils.converterDateToString(usu.getDataNasc()));
-        txtsenha.setText(usu.getSenha());
-        txtConSenha1.setText(usu.getSenha());
+        txtSenha.setText(usu.getSenha());
+        txtConSenha.setText(usu.getSenha());
         setSenhaUsuario(usu.getSenha());
         ckbAtivo.setSelected(usu.isAtivo());
 
@@ -583,40 +613,24 @@ public class FRUPDUsuario extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterarSenha;
-    private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnCancelar1;
     private javax.swing.JButton btnExcluir;
-    private javax.swing.JButton btnSalvar;
     private javax.swing.JButton btnSalvar2;
     private javax.swing.JCheckBox ckbAtivo;
-    private javax.swing.JCheckBox ckbAtivo1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JPasswordField txtConSenha;
-    private javax.swing.JPasswordField txtConSenha1;
     private javax.swing.JTextField txtEmail;
-    private javax.swing.JFormattedTextField txtNasc;
     private javax.swing.JFormattedTextField txtNascimento;
     private javax.swing.JTextField txtNome;
     private javax.swing.JPasswordField txtSenha;
-    private javax.swing.JTextField txtemail;
-    private javax.swing.JTextField txtnome;
-    private javax.swing.JPasswordField txtsenha;
     // End of variables declaration//GEN-END:variables
 }
