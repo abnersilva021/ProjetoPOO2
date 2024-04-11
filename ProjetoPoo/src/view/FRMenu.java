@@ -43,6 +43,8 @@ public class FRMenu extends javax.swing.JFrame {
         mConsulta = new javax.swing.JMenu();
         MiConUsuario = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
+        mConsulta1 = new javax.swing.JMenu();
+        MISobre = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -57,10 +59,13 @@ public class FRMenu extends javax.swing.JFrame {
         jMenu6.setText("jMenu6");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setExtendedState(6);
 
         jPanel4.setBackground(new java.awt.Color(102, 255, 204));
 
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/10863264_fi_br_circle_a_icon.png"))); // NOI18N
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -68,14 +73,14 @@ public class FRMenu extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(266, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(246, 246, 246))
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
+                .addContainerGap(246, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(162, 162, 162)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(162, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
                 .addContainerGap(175, Short.MAX_VALUE))
         );
 
@@ -117,6 +122,18 @@ public class FRMenu extends javax.swing.JFrame {
 
         jMenuBar2.add(mConsulta);
 
+        mConsulta1.setText("Ajuda");
+
+        MISobre.setText("Sobre");
+        MISobre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MISobreActionPerformed(evt);
+            }
+        });
+        mConsulta1.add(MISobre);
+
+        jMenuBar2.add(mConsulta1);
+
         setJMenuBar(jMenuBar2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -150,6 +167,12 @@ public class FRMenu extends javax.swing.JFrame {
     private void MiConUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MiConUsuarioActionPerformed
         new FRConUsuario(this, rootPaneCheckingEnabled).setVisible(true);
     }//GEN-LAST:event_MiConUsuarioActionPerformed
+
+    private void MISobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MISobreActionPerformed
+
+        new FRSobre(this, rootPaneCheckingEnabled).setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MISobreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -188,6 +211,7 @@ public class FRMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem MICadUsuario;
+    private javax.swing.JMenuItem MISobre;
     private javax.swing.JMenuItem MiConUsuario;
     private javax.swing.JMenuItem MiSair;
     private javax.swing.JLabel jLabel1;
@@ -203,5 +227,6 @@ public class FRMenu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JMenu mCadastro;
     private javax.swing.JMenu mConsulta;
+    private javax.swing.JMenu mConsulta1;
     // End of variables declaration//GEN-END:variables
 }

@@ -40,6 +40,7 @@ public class FRUPDUsuario extends javax.swing.JDialog {
     public FRUPDUsuario(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -360,6 +361,15 @@ public class FRUPDUsuario extends javax.swing.JDialog {
     }//GEN-LAST:event_txtNascimentoKeyPressed
 
     private void btnExcluirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExcluirMouseClicked
+
+        int resposta = JOptionPane.showConfirmDialog(null, "Deseja excluir o usuario?", "confirmação", JOptionPane.YES_NO_OPTION);
+
+        if (resposta == JOptionPane.YES_OPTION) {
+            UsuarioController controller = new UsuarioController();
+            if (controller.excluirUsuario(pkUsuario)) {
+                this.dispose();
+            }
+        }
         // TODO add your handling code here:
 
 
@@ -408,7 +418,7 @@ public class FRUPDUsuario extends javax.swing.JDialog {
 
         if (verificaCampos() == false) {
 
-        return;
+            return;
 
         }
 
