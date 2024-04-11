@@ -52,7 +52,7 @@ public class UsuarioController {
             return false;
         }
     }
-    
+    //abner
     public List<Usuario> readForDesc(int tipo, String desc){
         return usuarioDAO.readForDesc(tipo, desc);
     }
@@ -64,6 +64,14 @@ public class UsuarioController {
       }
       return usu;
     }
-   
+   public boolean excluirUsuario(int pkUsuario){
+       if(usuarioDAO.excluirUsuario(pkUsuario)){
+           return false;
+           
+       }else{
+           JOptionPane.showMessageDialog(null, "Usuario nao excluido");
+           return false;
+       }
+   }
            
 }

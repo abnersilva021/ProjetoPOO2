@@ -211,6 +211,8 @@ public class FRConUsuario extends javax.swing.JDialog {
             telaUPD.setPkUsuario(pk);
             telaUPD.carregarUsuario();
             telaUPD.setVisible(true);
+            
+            pesquisar();
         }
 
             // TODO add your handling code here:

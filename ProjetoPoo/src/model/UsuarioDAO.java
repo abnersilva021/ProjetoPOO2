@@ -71,7 +71,7 @@ public class UsuarioDAO {
         }
         return false;
     }
-    
+
     public boolean alterarUsuario(Usuario u, Long pk) {
         String sql = "UPDATE TBUSUARIO SET Nome = ?, email = ?, senha = ?, dataNasc = ?, ativo = ? WHERE pkUsuario = ?";
 
@@ -169,16 +169,39 @@ public class UsuarioDAO {
                 usuario.setSenha(rs.getString("senha"));
                 usuario.setDataNasc(rs.getDate("datanasc"));
                 usuario.setAtivo(rs.getBoolean("ativo"));
-               
+
             }
-            
-        }catch (SQLException ex){
+
+        } catch (SQLException ex) {
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-            
-        }finally{
+
+        } finally {
             gerenciador.closeConnection(stmt, rs);
-            
+
         }
         return usuario;
     }
+
+    public boolean excluirUsuario(int pkUsuario) {
+        String sql = "DELETE FROM tbusuario" + "WHERE pkusuario = ?";
+
+        GerenciadorConexao gerenciador = new GerenciadorConexao();
+        Connection con = gerenciador.getConexao();
+        PreparedStatement stmt = null;
+        try {
+            stmt = con.prepareStatement(sql);
+            stmt.setInt(1, pkUsuario);
+            stmt.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Usuario excluido com sucesso!");
+            return true;
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ap excluir" + ex);
+        } finally {
+            gerenciador.closeConnection(stmt);
+        }
+        return false;
+
     }
+}
